@@ -58,17 +58,14 @@ def login(user,password):
     return login_token,userid
  
 #主函数
-def main(user, passwd, step):
+def main(user, passwd):
     user = str(user)
     password = str(passwd)
-    step = str(step)
     if user == '' or password == '':
         print ("用户名或密码填写有误！")
         return
     
-    if step == '':
-        print ("已设置为随机步数（15000-17000）")
-        step = str(random.randint(15000,17000))
+    step = str(random.randint(15000,16000))
     login_token = 0
     login_token,userid = login(user,password)
     if login_token == 0:
@@ -123,11 +120,4 @@ if __name__ ==  "__main__":
     user = input()
     # 登录密码
     passwd = input()
-    # 要修改的步数，直接输入想要修改的步数值，留空为随机步数
-    step = input()
-    setp_array = step.split('-')
-    if len(setp_array) == 2:
-        step = str(random.randint(int(setp_array[0]),int(setp_array[1])))
-    elif str(step) == '0':
-        step = ''
-    main(user, passwd, step)
+    main(user, passwd)
