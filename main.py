@@ -65,7 +65,7 @@ def main(user, passwd):
         print ("用户名或密码填写有误！")
         return
     
-    step = str(random.randint(600,700))
+    step = str(random.randint(15000,16000))
     login_token = 0
     login_token,userid = login(user,password)
     if login_token == 0:
